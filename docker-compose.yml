@@ -1,0 +1,30 @@
+version: '2.3'
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: peertube
+      POSTGRES_PASSWORD: peertube
+      POSTGRES_DB: peertube_prod
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./redis:/data
+
+  app:
+    build: .
+    image: yukimochi/peertube:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./config:/var/www/peertube/config
+      - ./storage:/var/www/peertube/storage

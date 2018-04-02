@@ -17,8 +17,7 @@ services:
       - ./redis:/data
 
   app:
-    build: .
-    image: yukimochi/peertube:latest-alpine
+    image: chocobozzz/peertube:stretch
     restart: always
     ports:
       - "9000:9000"
@@ -26,5 +25,5 @@ services:
       - db
       - redis
     volumes:
-      - ./config:/var/www/peertube/config
-      - ./storage:/var/www/peertube/storage
+      - ./config:/app/support/docker/production/config
+      - ./storage:/data

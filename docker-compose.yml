@@ -25,5 +25,5 @@ services:
       - db
       - redis
     volumes:
-      - ./config:/app/support/docker/production/config
-      - ./storage:/data
+      - ./config:/config
+      - ./storage:/var/www/peertube/data

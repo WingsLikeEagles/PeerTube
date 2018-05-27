@@ -1,0 +1,13 @@
+image: yukimochi/peertube:latest
+manifests:
+  -
+    image: yukimochi/peertube:latest-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: yukimochi/peertube:latest-aarch64
+    platform:
+      architecture: arm64
+      variant: v8
+      os: linux

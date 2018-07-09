@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ARG PEERTUBE_VER=v1.0.0-beta.8
+ARG PEERTUBE_VER=v1.0.0-beta.9
 
 WORKDIR /var/www/peertube
 RUN adduser -h /var/www/peertube -s /bin/sh -D peertube && \

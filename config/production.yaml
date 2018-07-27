@@ -23,6 +23,8 @@ database:
   username: 'peertube'
   password: 'peertube'
 
+# You can also specify a 'socket' path to a unix socket but first need to
+# comment out hostname and port
 redis:
   hostname: 'redis'
   port: 6379
@@ -47,6 +49,7 @@ storage:
   previews: '../data/previews/'
   thumbnails: '../data/thumbnails/'
   torrents: '../data/torrents/'
+  captions: '../data/captions/'
   cache: '../data/cache/'
 
 log:
@@ -54,7 +57,9 @@ log:
 
 cache:
   previews:
-    size: 100 # Max number of previews you want to cache
+    size: 500 # Max number of previews you want to cache
+  captions:
+    size: 500 # Max number of video captions/subtitles you want to cache
 
 admin:
   email: 'admin@example.com' # Your personal email as administrator

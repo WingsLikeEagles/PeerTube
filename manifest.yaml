@@ -6,7 +6,7 @@ manifests:
       architecture: amd64
       os: linux
   -
-    image: yukimochi/peertube:latest-aarch64
+    image: yukimochi/peertube:latest-arm64
     platform:
       architecture: arm64
       variant: v8

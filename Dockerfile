@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.8
 
 ARG PEERTUBE_VER=v1.1.0
 
@@ -8,7 +8,7 @@ RUN adduser -h /var/www/peertube -s /bin/sh -D peertube && \
 
 RUN apk -U upgrade && \
     apk add ca-certificates ffmpeg nodejs nodejs-npm openssl yarn && \
-    apk add -U vips-dev fftw-dev --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
+    apk add -U vips-dev fftw-dev --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
     update-ca-certificates && \
     apk add --virt .dep curl git g++ python make unzip && \
     su peertube -c 'curl -sL "https://github.com/Chocobozzz/PeerTube/releases/download/$PEERTUBE_VER/peertube-$PEERTUBE_VER.zip" > peertube-$PEERTUBE_VER.zip && \
